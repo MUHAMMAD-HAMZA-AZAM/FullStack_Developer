@@ -177,10 +177,21 @@
     <Compile Include="Migrations\202008210951552_InitialSetup.Designer.cs">
       <DependentUpon>202008210951552_InitialSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008211028052_CustomEntities.cs" />
+    <Compile Include="Migrations\202008211028052_CustomEntities.Designer.cs">
+      <DependentUpon>202008211028052_CustomEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008211040147_OverrideCustomConfigurations.cs" />
+    <Compile Include="Migrations\202008211040147_OverrideCustomConfigurations.Designer.cs">
+      <DependentUpon>202008211040147_OverrideCustomConfigurations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\POCO.Entities\Genre.cs" />
+    <Compile Include="Models\POCO.Entities\Gig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -260,6 +271,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008210951552_InitialSetup.resx">
       <DependentUpon>202008210951552_InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008211028052_CustomEntities.resx">
+      <DependentUpon>202008211028052_CustomEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008211040147_OverrideCustomConfigurations.resx">
+      <DependentUpon>202008211040147_OverrideCustomConfigurations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
