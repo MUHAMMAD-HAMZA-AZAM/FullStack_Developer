@@ -15,8 +15,12 @@ namespace GigHub.Models.POCO.Entities
         [StringLength(255)]
         public string Venue { get; set; }
 
+        //public string  Artist_Id { get; set; }
+
         [Required]
         public virtual ApplicationUser Artist { get; set; }
+
+        //public byte Genre_Id { get; set; }
 
         [Required]
         public virtual Genre Genre { get; set; }

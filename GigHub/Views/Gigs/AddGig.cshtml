@@ -1,0 +1,34 @@
+﻿@model GigHub.ViewModels.GigViewModel
+
+<h1>
+    Add a Gig
+</h1>
+@using (Html.BeginForm("AddGig","Gigs",FormMethod.Post)) { 
+
+    <form>
+        <div class="form-group">
+
+            <label>Venue</label>
+            @Html.TextBoxFor(m => m.Venue, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=> m.Venue , "", new { @class = "text-danger" })
+            
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=> m.Date, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Time</label>
+            @Html.TextBoxFor(m => m.Time, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=> m.Time, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Genre</label>
+             @Html.DropDownListFor(m => Model.SelectedGenreId, new SelectList(Model.GenreList, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=> m.SelectedGenreId, "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+}

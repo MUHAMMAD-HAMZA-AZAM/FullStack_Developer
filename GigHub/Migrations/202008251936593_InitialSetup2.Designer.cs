@@ -7,13 +7,13 @@ namespace GigHub.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class OverrideCustomConfigurations : IMigrationMetadata
+    public sealed partial class InitialSetup2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OverrideCustomConfigurations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSetup2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008211040147_OverrideCustomConfigurations"; }
+            get { return "202008251936593_InitialSetup2"; }
         }
         
         string IMigrationMetadata.Source
