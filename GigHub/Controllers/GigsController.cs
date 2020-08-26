@@ -35,6 +35,7 @@ namespace GigHub.Controllers
 
         [System.Web.Mvc.Authorize]
         [HttpGet]
+
         public ActionResult AddGig()
         {
             _gigViewModel.GenreList = _context.Genres.ToList();
