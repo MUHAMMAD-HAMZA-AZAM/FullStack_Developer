@@ -347,15 +347,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008251936593_InitialSetup2.cs" />
-    <Compile Include="Migrations\202008251936593_InitialSetup2.Designer.cs">
-      <DependentUpon>202008251936593_InitialSetup2.cs</DependentUpon>
+    <Compile Include="Migrations\202008280910445_AddThirdTableofAttendance.cs" />
+    <Compile Include="Migrations\202008280910445_AddThirdTableofAttendance.Designer.cs">
+      <DependentUpon>202008280910445_AddThirdTableofAttendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\POCO.Entities\Attendance.cs" />
     <Compile Include="Models\POCO.Entities\Genre.cs" />
     <Compile Include="Models\POCO.Entities\Gig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -397,7 +398,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -419,6 +419,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Gigs\AddGig.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -437,8 +438,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008251936593_InitialSetup2.resx">
-      <DependentUpon>202008251936593_InitialSetup2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008280910445_AddThirdTableofAttendance.resx">
+      <DependentUpon>202008280910445_AddThirdTableofAttendance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

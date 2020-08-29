@@ -14,6 +14,7 @@ namespace GigHub.ViewModels
         public GigViewModel()
         {
             GenreList = new List<Genre>();
+            GigsList = new List<Gig>();
         }
 
         [Required(ErrorMessage =("* Venue is Required"))]
@@ -28,6 +29,8 @@ namespace GigHub.ViewModels
 
         [Required(ErrorMessage = ("* Select a Genre"))]
         public byte SelectedGenreId { get; set; }
+
+        public List<Gig> GigsList { get; set; }
 
     }
 }

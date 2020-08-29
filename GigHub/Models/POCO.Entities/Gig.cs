@@ -24,5 +24,7 @@ namespace GigHub.Models.POCO.Entities
 
         [Required]
         public virtual Genre Genre { get; set; }
+
+      //  public virtual ICollection<Attendance> Attendances { get; set; }
     }
 }
