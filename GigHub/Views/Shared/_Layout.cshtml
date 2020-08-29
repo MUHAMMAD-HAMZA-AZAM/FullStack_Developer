@@ -6,6 +6,7 @@
     <title>GigHub</title>
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
@@ -33,12 +34,9 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
-
-
-    @RenderSection("scripts", required: false)
 </body>
 </html>

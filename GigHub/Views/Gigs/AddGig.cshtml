@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label>Genre</label>
-             @Html.DropDownListFor(m => Model.SelectedGenreId, new SelectList(Model.GenreList, "Id", "Name"), "", new { @class = "form-control" })
+             @Html.DropDownListFor(m => Model.SelectedGenreId, new SelectList(Model.GenreList, "Id", "Name"), new { @class = "form-control" })
             @Html.ValidationMessageFor(m=> m.SelectedGenreId, "", new { @class = "text-danger" })
         </div>
         <button type="submit" class="btn btn-primary">Save</button>

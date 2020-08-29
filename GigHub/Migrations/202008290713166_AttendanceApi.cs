@@ -3,7 +3,7 @@ namespace GigHub.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddThirdTableofAttendance : DbMigration
+    public partial class AttendanceApi : DbMigration
     {
         public override void Up()
         {
