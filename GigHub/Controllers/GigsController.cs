@@ -69,7 +69,7 @@ namespace GigHub.Controllers
                     _gig.DateTime = DateTime.Parse(string.Format("{0} {1}", gigViewModel.Date, gigViewModel.Time));
                     _context.Gigs.Add(_gig);
                     _context.SaveChanges();
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Mine","Gigs");
 
             }
             return View();
@@ -84,6 +84,18 @@ namespace GigHub.Controllers
                 .Include(g => g.Artist)
                 .ToList();
             return View(_gigViewModel);
+        }
+
+        [System.Web.Http.Authorize]
+        public ActionResult Mine()
+        {
+            var userid = User.Identity.GetUserId();
+            var gigs = _context.Gigs
+                .Include(g=>g.Genre)
+                .Where(g => g.Artist.Id == userid)
+                .ToList();
+
+            return View(gigs);
         }
     }
 }
