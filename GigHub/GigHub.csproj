@@ -352,10 +352,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AttendancesController.cs" />
+    <Compile Include="Controllers\Api\FollowingController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DTO%27s\AttendanceDTO.cs" />
+    <Compile Include="DTO%27s\FollowingDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -363,12 +365,17 @@
     <Compile Include="Migrations\202008290713166_AttendanceApi.Designer.cs">
       <DependentUpon>202008290713166_AttendanceApi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008290948265_FollowingTable.cs" />
+    <Compile Include="Migrations\202008290948265_FollowingTable.Designer.cs">
+      <DependentUpon>202008290948265_FollowingTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\POCO.Entities\Attendance.cs" />
+    <Compile Include="Models\POCO.Entities\Following.cs" />
     <Compile Include="Models\POCO.Entities\Genre.cs" />
     <Compile Include="Models\POCO.Entities\Gig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -432,6 +439,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Gigs\AddGig.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Gigs\Attending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -452,6 +460,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008290713166_AttendanceApi.resx">
       <DependentUpon>202008290713166_AttendanceApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008290948265_FollowingTable.resx">
+      <DependentUpon>202008290948265_FollowingTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

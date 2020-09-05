@@ -16,23 +16,25 @@ namespace GigHub.Controllers
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly GigViewModel _gigViewModel;
         
-
         public HomeController()
         {
             _applicationDbContext = new ApplicationDbContext();
             _gigViewModel = new GigViewModel();
         }
 
-        [Authorize]
+        
         public ActionResult Index()
         {
             var artistId = User.Identity.GetUserId();
-            _gigViewModel.GigsList = _applicationDbContext.Gigs.Include(g=> g.Genre).Where(g => g.Artist.Id == artistId).ToList();
+            _gigViewModel.GigsList = _applicationDbContext.Gigs.Include(g=> g.Genre).ToList();
+            return View(_gigViewModel);
             //var upcomingGigs = _applicationDbContext.Gigs
             //    .Include(g => g.Artist)
             //    .Where(g => g.DateTime > DateTime.Now);
-            return View(_gigViewModel);
+
         }
+
+       
 
         public ActionResult About()
         {

@@ -15,6 +15,7 @@ namespace GigHub.ViewModels
         {
             GenreList = new List<Genre>();
             GigsList = new List<Gig>();
+            MyFollowingGigs = new List<Gig>();
         }
 
         [Required(ErrorMessage =("* Venue is Required"))]
@@ -31,6 +32,8 @@ namespace GigHub.ViewModels
         public byte SelectedGenreId { get; set; }
 
         public List<Gig> GigsList { get; set; }
+
+        public List<Gig> MyFollowingGigs { get; set; }
 
     }
 }

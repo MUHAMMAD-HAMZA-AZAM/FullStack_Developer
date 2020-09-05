@@ -1,0 +1,49 @@
+﻿@model GigHub.ViewModels.GigViewModel
+
+<h1> Gigs I'm Attending </h1>
+
+<br />
+
+<ul class="gigs">
+
+    @foreach (var gig in Model.MyFollowingGigs)
+    {
+
+        <li>
+
+            <div class="date">
+                <div class="month">
+                    @gig.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @gig.DateTime.ToString("d ")
+                </div>
+            </div>
+
+            <div class="details">
+                <span class="artist">
+
+                    @gig.Artist.Name
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <button class="btn btn-link btn-xs  js-toggle-following" data-artist-id="@gig.Artist.Id"> Follow</button>
+                    }
+                </span>
+                <span class="genre">
+
+                    @gig.Genre.Name
+
+                </span>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    <button class="btn btn-default btn-xs pull-right js-toggle-attendance" data-gig-id="@gig.Id">
+                        Going?
+                    </button>
+                }
+            </div>
+        </li>
+    }
+</ul>

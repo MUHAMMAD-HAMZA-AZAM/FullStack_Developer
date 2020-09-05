@@ -1,5 +1,7 @@
 ﻿@model GigHub.ViewModels.GigViewModel
-    
+   
+<h1> Upcoming Gigs </h1>
+<br /> 
     <ul class="gigs">
 
         @foreach (var gig in Model.GigsList)
@@ -21,21 +23,31 @@
 
                         @gig.Artist.Name
 
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <button class="btn btn-link btn-xs  js-toggle-following" data-artist-id="@gig.Artist.Id"> Follow</button>
+                        }
                     </span>
                     <span class="genre">
 
                         @gig.Genre.Name
 
                     </span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-default btn-xs pull-right js-toggle-attendance" data-gig-id="@gig.Id">
-                        Going?
-                    </button>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <button class="btn btn-default btn-xs pull-right js-toggle-attendance" data-gig-id="@gig.Id">
+                            Going?
+                        </button>
+                    }
                 </div>
             </li>
         }
     </ul>
 <script>
+
+    // to create Going Button on Gigs List 
     $(document).ready(function () {
         debugger;
         $(".js-toggle-attendance").click(function (e) {
@@ -55,5 +67,27 @@
                 });
         });
     }); 
+
+    // to create Follow Button on Gigs List 
+
+    $(document).ready(function () {
+        debugger;
+        $(".js-toggle-following").click(function (e) {
+            debugger;
+            var button = $(e.target);
+            $.post("/api/Following", { followeeId: button.attr("data-artist-id") })
+                .done(function () {
+
+                    button.text(" Following ");
+                        
+                        
+                })
+                .fail(function () {
+
+                    alert(" Something Going Wrong !!! ");
+                });
+        });
+    }); 
+
 
 </script>

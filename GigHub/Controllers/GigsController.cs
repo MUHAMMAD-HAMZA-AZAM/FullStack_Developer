@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -73,6 +74,16 @@ namespace GigHub.Controllers
             }
             return View();
         }
-
+        public ActionResult Attending()
+        {
+            var artistId = User.Identity.GetUserId();
+            _gigViewModel.MyFollowingGigs = _context.Attendances
+                .Where(a => a.AttendeeId == artistId)
+                .Select(g => g.Gig)
+                .Include(g => g.Genre)
+                .Include(g => g.Artist)
+                .ToList();
+            return View(_gigViewModel);
+        }
     }
 }
