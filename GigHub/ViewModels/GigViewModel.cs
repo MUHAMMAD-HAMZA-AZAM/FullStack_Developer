@@ -17,6 +17,7 @@ namespace GigHub.ViewModels
             GigsList = new List<Gig>();
             MyFollowingGigs = new List<Gig>();
         }
+        public int Id { get; set; }
 
         [Required(ErrorMessage =("* Venue is Required"))]
         public string Venue { get; set; }
@@ -34,6 +35,11 @@ namespace GigHub.ViewModels
         public List<Gig> GigsList { get; set; }
 
         public List<Gig> MyFollowingGigs { get; set; }
+
+        //public DateTime GetDateTime()
+        //{
+        //    return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+        //}
 
     }
 }

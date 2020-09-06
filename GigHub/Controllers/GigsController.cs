@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -74,6 +75,47 @@ namespace GigHub.Controllers
             }
             return View();
         }
+
+        [System.Web.Http.Authorize]
+        public ActionResult Edit ( int id)
+        {
+            var userId = User.Identity.GetUserId();
+            Gig gigObj = new Gig();
+            gigObj = _context.Gigs.Where(g => g.Id == id && g.Artist.Id== userId).FirstOrDefault();
+            GigViewModel gigViewModel = new GigViewModel
+            {
+                Id=id,
+                Venue = gigObj.Venue,
+                Date = gigObj.DateTime.ToString("d MM yyyy"),
+                Time= gigObj.DateTime.ToString("HH:mm"),
+                SelectedGenreId=gigObj.Genre.Id,
+                GenreList=_context.Genres.ToList()
+            };
+
+            return View(gigViewModel);
+        }
+
+        [System.Web.Http.Authorize]
+        [HttpPost]
+        public ActionResult Edit( GigViewModel model)
+        {
+            Gig ObjGig = new Gig();
+            if (ModelState.IsValid)
+            {
+                ObjGig.Id = model.Id;
+                ObjGig.Venue = model.Venue;
+                ObjGig.DateTime = DateTime.Now;
+                ObjGig.Genre.Id = model.SelectedGenreId;
+                _context.Gigs.Add(ObjGig);
+                _context.SaveChanges();
+                return RedirectToAction("Mine");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         public ActionResult Attending()
         {
             var artistId = User.Identity.GetUserId();

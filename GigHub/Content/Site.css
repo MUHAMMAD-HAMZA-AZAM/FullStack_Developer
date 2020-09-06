@@ -53,7 +53,8 @@ textarea {
 
 .form-control {
     font-size:17px;
-    padding:20px 15px;
+/*    padding:20px 15px; Bcz Due to Padding , Seleceted Item from Dropdown is Not Showing*/
+     height:44px;
     border-radius:9px;
 }
 
@@ -130,4 +131,13 @@ textarea {
     .gigs > li .details .genre{
         
         font-size:15px;
+    }
+
+    .gigs > li .actions {
+        font-size:15px;
+        display:none;
+    }
+
+    .gigs > li:hover .actions {
+        display:block;
     }

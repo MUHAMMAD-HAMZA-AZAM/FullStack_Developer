@@ -23,26 +23,19 @@
 
                     @gig.Artist.Name
 
-                    @*@if (User.Identity.IsAuthenticated)
-                    {
-                        <button class="btn btn-link btn-xs  js-toggle-following" data-artist-id="@gig.Artist.Id"> Follow</button>
-                    }*@
                 </span>
                 <span class="genre">
 
                     @gig.Genre.Name
 
                 </span>
-                @*&nbsp; &nbsp; &nbsp; &nbsp;
-                @if (User.Identity.IsAuthenticated)
-                {
+               <div class="actions" style="font-size: 15px;">
 
-                    <button class="btn btn-default btn-xs pull-right js-toggle-attendance" data-gig-id="@gig.Id">
-                        Going?
-                    </button>
-                }*@
+                   <a href="@Url.Action("Edit","Gigs", new { id=gig.Id})">Update</a>
+               </div>
             </div>
         </li>
     }
 </ul>
+
 
